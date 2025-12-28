@@ -7,21 +7,46 @@
 </head>
 <body>
 
-<div id="startScreen">
+<canvas id="matrix"></canvas>
+
+<div id="startScreen" class="screen">
   <h1>CyberHack RPG</h1>
-  <p>Bu oyun tamamen hayal ürünüdür.</p>
+  <p>Bu oyun Emre Çavuş tarafından yapılmış olup tamamen hayal ürünüdür.</p>
   <label><input type="checkbox" id="accept"> Okudum, kabul ediyorum</label><br><br>
-  <button id="startBtn" disabled>Oyuna Başla</button>
+  <button id="acceptBtn" disabled>Devam Et</button>
 </div>
 
-<div id="gamePanel">
+<div id="registerScreen" class="screen hidden">
+  <h2>Kayıt Ol</h2>
+  <input id="email" placeholder="E‑posta"><br>
+  <input id="password" type="password" placeholder="Şifre"><br>
+  <button id="registerBtn">Kayıt Ol</button>
+</div>
+<div id="shopPanel" class="hidden">
+  <button onclick="buyItem('autohack')">🤖 AutoHack (-300)</button><br>
+<button onclick="buyItem('chance')">➕ Extra Hak (-200)</button><br>
+<button onclick="buyItem('shield')">🛡 Shield (-250)</button><br>
+<button onclick="buyItem('double')">💎 Double Score (-400)</button><br><br>
+  <h2>🕶 DeepShop</h2>
+  <p>Toplanan verileri sat veya araç satın al</p>
+  <button onclick="sellData()">📤 Veri Sat (+100)</button><br><br>
+  <button onclick="buyTool('stealth')">🛡 Stealth Tool (-150)</button><br>
+  <button onclick="buyTool('speed')">⚡ Speed Tool (-150)</button><br><br>
+  <button onclick="closeShop()">Kapat</button>
+</div>
+<div id="gamePanel" class="hidden">
+  <canvas id="panelMatrix"></canvas>
+
   <div id="topBar">
     <span id="dayText">Gün 1</span>
     <span id="missionText"></span>
+    <span id="scoreText">Skor: 0</span>
     <button id="helpBtn">Yardım</button>
+    <button id="saveBtn">Kaydet</button>
+    <button id="loadBtn">Yükle</button>
+    <button id="onlineBtn">Online Skor</button>
+    <button onclick="openShop()">DeepShop</button>
   </div>
-
-  <div id="dayOver" style="display:none; color:yellow; text-align:center; margin-top:5px;">Gün bitti!</div>
 
   <div id="terminal">
     <div id="output"></div>
@@ -33,9 +58,9 @@
   </div>
 </div>
 
-<div id="overlay"></div>
+<div id="onlineScores" class="hidden"></div>
 
-<div id="caughtScreen">
+<div id="caughtScreen" class="screen hidden">
   <h1>⚠ YAKALANDIN ⚠</h1>
   <button onclick="location.reload()">Yeniden Başla</button>
 </div>
@@ -43,7 +68,7 @@
 <audio id="music" loop src="music.mp3"></audio>
 <audio id="alarm" src="alarm.mp3"></audio>
 
-<script src="script.js" defer></script>
+<script src="script.js"></script>
 </body>
 </html>
 
