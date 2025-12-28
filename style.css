@@ -1,97 +1,42 @@
-body {
-  margin:0;
-  background:black;
-  color:#0f0;
-  font-family:Consolas, monospace;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+body { margin:0; background:black; color:#00ff66; font-family:monospace; overflow:hidden; }
+.hidden{display:none;}
+.screen{text-align:center;margin-top:100px;}
+
+#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+
+#gamePanel{
+  width:600px;margin:30px auto;padding:10px;
+  border:2px solid #00ff66;position:relative;
+  background:rgba(0,0,0,0.85);
 }
 
-#startScreen, #caughtScreen {
-  text-align:center;
+#panelMatrix{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  opacity:.25;pointer-events:none;z-index:0;
 }
 
-#gamePanel {
-  display:none;
-  width:650px;
-  height:420px;
-  border:2px solid #0f0;
-  padding:10px;
-  display:flex;
-  flex-direction:column;
+#topBar{display:flex;gap:10px;flex-wrap:wrap;z-index:1;position:relative;}
+
+#terminal{
+  margin-top:10px;height:300px;overflow-y:auto;
+  border-top:1px solid #00ff66;padding-top:10px;z-index:1;position:relative;
 }
 
-#topBar {
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #0f0;
-  padding-bottom:5px;
-}
+#inputLine{display:flex;}
+#command{flex:1;background:black;color:#00ff66;border:none;outline:none;}
 
-#terminal {
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  margin-top:5px;
-}
+button{background:black;color:#00ff66;border:1px solid #00ff66;cursor:pointer;}
 
-#output {
-  flex:1;
-  border:1px solid #0f0;
-  padding:5px;
-  overflow-y:auto;
-}
-
-#inputLine {
-  display:flex;
-  gap:5px;
-  margin-top:5px;
-}
-
-#command {
-  flex:1;
-  background:black;
-  color:#0f0;
-  border:1px solid #0f0;
-  padding:5px;
-  outline:none;
-  z-index:999;
-}
-
-button {
-  background:black;
-  color:#0f0;
-  border:1px solid #0f0;
-  padding:5px 10px;
-  cursor:pointer;
-}
-
-#overlay {
+#onlineScores{
+  position:fixed;right:20px;top:80px;
+  border:1px solid #00ff66;padding:10px;background:black;
+}#shopPanel{
   position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
+  top:100px;
+  left:50%;
+  transform:translateX(-50%);
   background:black;
-  opacity:0;
-  pointer-events:none;
-  transition:0.5s;
-}
-
-#caughtScreen {
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:black;
-  color:red;
-  display:none;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  font-size:28px;
-}
-
-#dayOver {
-  font-weight:bold;
-  font-size:18px;
+  border:2px solid #00ff66;
+  padding:15px;
+  z-index:20;
 }
