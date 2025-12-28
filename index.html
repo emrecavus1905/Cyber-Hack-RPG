@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>CyberHack RPG</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="startScreen">
+  <h1>CyberHack RPG</h1>
+  <p>Bu oyun tamamen hayal ürünüdür.</p>
+  <label><input type="checkbox" id="accept"> Okudum, kabul ediyorum</label><br><br>
+  <button id="startBtn" disabled>Oyuna Başla</button>
+</div>
+
+<div id="gamePanel">
+  <div id="topBar">
+    <span id="dayText">Gün 1</span>
+    <span id="missionText"></span>
+    <button id="helpBtn">Yardım</button>
+  </div>
+
+  <div id="dayOver" style="display:none; color:yellow; text-align:center; margin-top:5px;">Gün bitti!</div>
+
+  <div id="terminal">
+    <div id="output"></div>
+    <div id="inputLine">
+      <span>&gt;</span>
+      <input id="command" autocomplete="off">
+      <button id="send">Gönder</button>
+    </div>
+  </div>
+</div>
+
+<div id="overlay"></div>
+
+<div id="caughtScreen">
+  <h1>⚠ YAKALANDIN ⚠</h1>
+  <button onclick="location.reload()">Yeniden Başla</button>
+</div>
+
+<audio id="music" loop src="music.mp3"></audio>
+<audio id="alarm" src="alarm.mp3"></audio>
+
+<script src="script.js" defer></script>
+</body>
+</html>
+
